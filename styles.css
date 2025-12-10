@@ -1,0 +1,9 @@
+body {
+  min-height: 100vh; 
+}
+.card {
+  border-radius: 1rem;
+} 
+#role-grid .card {
+  background: rgba(255, 255, 255, 0.03);
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es"> 
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Impostor Words</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-qQ2qCHnbjaPc9s1mR+fZBeW0lniOwHIkfyxysQjDwuz0E0NE6w0p4YK7m0Pp8wlK"
+      crossorigin="anonymous"
+    /> 
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-dark text-light">
+    <div class="container py-4">
+      <header class="mb-4 text-center">
+        <h1 class="display-5 fw-bold">Impostor Words (Prototipo)</h1>
+        <p class="lead text-muted">Juego local para probar la lógica antes de añadir backend.</p>
+      </header>
+
+      <section class="row g-4">
+        <article class="col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title fs-5">Panel del administrador</h3>
+              <form id="admin-form" class="mb-3">
+                <div class="mb-3">
+                  <label for="admin-name" class="form-label">Nombre del admin</label>
+                  <input type="text" id="admin-name" class="form-control" placeholder="Tu nombre" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Crear sala</button>
+              </form>
+              <div id="room-controls" class="d-none">
+                <p class="mb-2">Estado de sala: <span id="room-state" class="fw-semibold">Esperando jugadores</span></p>
+                <div class="d-grid gap-2">
+                  <button id="start-game" class="btn btn-success" disabled>Iniciar cuenta atrás</button>
+                  <button id="end-game" class="btn btn-outline-danger">Terminar partida</button>
+                </div>
+                <div class="mt-3">
+                  <p class="mb-1">Cuenta regresiva:</p>
+                  <p class="display-6 fw-bold" id="countdown">—</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title fs-5">Jugadores conectados</h3>
+              <form id="player-form" class="input-group mb-3">
+                <input type="text" id="player-name" class="form-control" placeholder="Nombre jugador" required />
+                <button class="btn btn-outline-secondary" type="submit">Añadir</button>
+              </form>
+              <ul id="player-list" class="list-group list-group-flush"></ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title fs-5">Resumen rápido</h3>
+              <p class="mb-2">Palabra asignada: <strong id="assigned-word">—</strong></p>
+              <p class="mb-0 text-muted">Solo visible durante la ronda activa.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="mt-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title fs-5 mb-3">Roles mostrados a cada jugador</h3>
+            <div id="role-grid" class="row gy-3"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-oER2ohkZJlc78qvJgj2xnsGiId9mRXu5Rf8IuleiycyT0W7pV7bxRkCb+2mFFbhU"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
